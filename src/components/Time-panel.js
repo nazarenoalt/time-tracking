@@ -10,7 +10,7 @@ class TimePanel extends HTMLElement {
     getTemplate() {
         const template = document.createElement('template');
         template.innerHTML = `
-            <section class="general-panel">
+            <section class="card">
             <div class="inner-card work">
                 <div class="sub-panel">
                 <div class="flex-container">
@@ -33,7 +33,7 @@ class TimePanel extends HTMLElement {
     getStyles() {
         return `
         <style>
-            .general-panel {
+            .card {
                 width: 300px;
                 background-color: var(--${this.colorArea});
                 border-radius: 15px;
