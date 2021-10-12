@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="src/styles/global.css">  
+  <link rel="stylesheet" href="src/styles/body.css">  
   <title>Time tracking dashboard</title>
 
   <style>
@@ -17,29 +18,26 @@
   <div class="container">
     <header class="header">
       <section class="user-panel">
-        <img src="./images/image-jeremy.png" alt="profile photo">
-        <p class="title">Report for</p>
-        <h2 class="user">Jeremy Robson</h2>
+        <img class="profile-photo" src="./images/image-jeremy.png" alt="profile photo">
+        <div>
+          <p class="title">Report for</p>
+          <h2 class="user">Jeremy Robson</h2>
+        </div>
       </section>
       <ul class="header__ul">
-        <li>
+        <li id="daily-button">
           <span>Daily</span>
         </li>
-        <li>
+        <li class="active-li" id="weekly-button" >
           <span>Weekly</span>
         </li>
-        <li>
+        <li id="monthly-button" >
           <span>Monthly</span>
         </li>
       </ul>
     </header>
-    <section class="general-panel">
-      <time-panel area="work" time="38hs" last-date="14hs"></time-panel>
-      <time-panel area="play" time="38hs" last-date="14hs"></time-panel>
-      <time-panel area="study" time="38hs" last-date="14hs"></time-panel>
-      <time-panel area="exercise" time="38hs" last-date="14hs"></time-panel>
-      <time-panel area="social" time="38hs" last-date="14hs"></time-panel>
-      <time-panel area="self-care" time="38hs" last-date="14hs"></time-panel>
+    <section class="general-panel" id="general-panel">
+      
     </section>
   </div>
 

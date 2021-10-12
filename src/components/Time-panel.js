@@ -2,13 +2,11 @@ class TimePanel extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" })
-        this.area = this.getAttribute('area');
-        this.time = this.getAttribute('time');
-        this.lastDate = this.getAttribute('last-date');
         this.colorArea;
         this.backgroundArea;
     }
 
+    
     getTemplate() {
         const template = document.createElement('template');
         template.innerHTML = `
@@ -23,7 +21,7 @@ class TimePanel extends HTMLElement {
                 </div>
                 <div class="flex-container">
                     <span class="time">${this.time}</span>
-                    <span class="last-date">last week - ${this.lastDate}</span>
+                    <span class="previous-date">last week - ${this.previousDate}</span>
                 </div>
                 </div>
             </div>
@@ -54,6 +52,7 @@ class TimePanel extends HTMLElement {
                 padding: 25px 20px;
                 transition: filter .1s;
             }
+            
             .inner-card:hover {
                 filter: brightness(170%);
             }
@@ -61,7 +60,6 @@ class TimePanel extends HTMLElement {
             .card-title {
                 font-size: 18px;
                 font-weight: bolder;
-                text-transform: capitalize;
                 line-height: 0.5;
             }
 
@@ -84,36 +82,53 @@ class TimePanel extends HTMLElement {
     }
 
     defineArea() {
-        if(this.area === "work") {
+        if(this.area === "Work") {
             this.colorArea = 'light-orange';
             this.backgroundArea = 'icon-work';
         }
-        if(this.area === "play") {
+        if(this.area === "Play") {
             this.colorArea = 'soft-blue';
             this.backgroundArea = 'icon-play';
         }
-        if(this.area === "study") {
+        if(this.area === "Study") {
             this.colorArea = 'light-red';
             this.backgroundArea = 'icon-study';
         }
-        if(this.area === "exercise") {
+        if(this.area === "Exercise") {
             this.colorArea = 'lime-green';
             this.backgroundArea = 'icon-exercise';
         }
-        if(this.area === "social") {
+        if(this.area === "Social") {
             this.colorArea = 'violet';
             this.backgroundArea = 'icon-social';
         }
-        if(this.area === "self-care") {
+        if(this.area === "Self Care") {
             this.colorArea = 'soft-yellow';
             this.backgroundArea = 'icon-self-care';
         }
     }
+
     connectedCallback() {
         this.defineArea();
         this.shadowRoot.append(this.getTemplate().content.cloneNode(true))
     }
 
+    static get observedAttributes() {
+        return ['area','time','previous-time'];
+    }
+
+    attributeChangedCallback(name, old, newV) {
+        if(name === 'area') {
+            this.area = newV;
+        }
+        if(name === 'time') {
+            this.time = newV;
+        }
+        if(name === 'previous-time') {
+            this.previousTime = newV;
+        }
+    }
+    
 }
 
 customElements.define('time-panel', TimePanel)
