@@ -58,6 +58,6 @@ body {
   color: var(--pale-blue);
 }
 
-.active-li {
+.active-listItem {
   color: white;
 }

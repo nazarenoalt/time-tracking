@@ -20,8 +20,8 @@ class TimePanel extends HTMLElement {
                     </span>
                 </div>
                 <div class="flex-container">
-                    <span class="time">${this.time}</span>
-                    <span class="previous-date">last week - ${this.previousDate}</span>
+                    <span class="time">${this.time}Hs</span>
+                    <span class="previous-date">last week - ${this.previousDate}Hs</span>
                 </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@ class TimePanel extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ['area','time','previous-time'];
+        return ['area','time','previous-date'];
     }
 
     attributeChangedCallback(name, old, newV) {
@@ -124,9 +124,10 @@ class TimePanel extends HTMLElement {
         if(name === 'time') {
             this.time = newV;
         }
-        if(name === 'previous-time') {
-            this.previousTime = newV;
+        if(name === 'previous-date') {
+            this.previousDate = newV;
         }
+
     }
     
 }
