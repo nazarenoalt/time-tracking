@@ -77,6 +77,16 @@ class TimePanel extends HTMLElement {
                 color: var(--pale-blue);
                 font-size: 1rem;
             }
+
+            @media screen and (min-width: 687px) {
+                .general-panel {
+                    width: 250px;
+                }
+                .flex-container:nth-child(2) {
+                    flex-direction: column;
+                    align-items: start;
+                }
+            }
         </style>
         `
     }
