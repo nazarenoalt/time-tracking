@@ -10,7 +10,7 @@ class TimePanel extends HTMLElement {
     getTemplate() {
         const template = document.createElement('template');
         template.innerHTML = `
-            <section class="general-panel">
+            <section class="card">
             <div class="inner-card work">
                 <div class="sub-panel">
                 <div class="flex-container">
@@ -33,7 +33,7 @@ class TimePanel extends HTMLElement {
     getStyles() {
         return `
         <style>
-            .general-panel {
+            .card {
                 width: 300px;
                 background-color: var(--${this.colorArea});
                 border-radius: 15px;
@@ -78,15 +78,20 @@ class TimePanel extends HTMLElement {
                 font-size: 1rem;
             }
 
-            @media screen and (min-width: 687px) {
-                .general-panel {
-                    width: 250px;
+            @media screen and (min-width: 1024px) {
+                .card {
+                    width: 230px
                 }
+
                 .flex-container:nth-child(2) {
                     flex-direction: column;
-                    align-items: start;
+                    align-items: flex-start;
                 }
-            }
+
+                .time {
+                    margin: 10px 0 20px;
+                }
+              }
         </style>
         `
     }
