@@ -14,14 +14,14 @@ class TimePanel extends HTMLElement {
             <div class="inner-card work">
                 <div class="sub-panel">
                 <div class="flex-container">
-                    <p class="card-title">${this.area}</p>
+                    <p class="card-title">${this.areaValue}</p>
                     <span class="options">
                             <img src="../../images/icon-ellipsis.svg" alt="">
                     </span>
                 </div>
                 <div class="flex-container">
-                    <span class="time">${this.time}Hs</span>
-                    <span class="previous-date">last week - ${this.previousDate}Hs</span>
+                    <span class="time">${this.timeValue}Hs</span>
+                    <span class="previous-date">last week - ${this.previousDateValue}Hs</span>
                 </div>
                 </div>
             </div>
@@ -132,15 +132,40 @@ class TimePanel extends HTMLElement {
         return ['area','time','previous-date'];
     }
 
-    attributeChangedCallback(name, old, newV) {
+    get areaValue() {
+        return this.area;
+    }
+
+    set areaValue(val) {
+        this.area = val;
+    }
+
+    get timeValue() {
+        return this.time;
+    }
+
+    set timeValue(val) {
+        this.time = val;
+    }
+
+    get previousDateValue() {
+        return this.previousDate;
+    }
+
+    set previousDateValue(val) {
+        this.previousDate = val;
+    }
+
+    
+    attributeChangedCallback(name, old, newVal) {
         if(name === 'area') {
-            this.area = newV;
+            this.areaValue = newVal
         }
         if(name === 'time') {
-            this.time = newV;
+            this.timeValue = newVal;
         }
         if(name === 'previous-date') {
-            this.previousDate = newV;
+            this.previousDateValue = newVal;
         }
 
     }
